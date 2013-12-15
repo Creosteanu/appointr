@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 		concat: {
 			vendorjs:  {
 				// generate warnings if input files are not found
-				nonull: false,
+				nonull: true,
 
 				dest: 'public/assets/js/vendor.js',
 				src:  [
@@ -84,6 +84,16 @@ module.exports = function(grunt) {
 
 					'bower_components/handlebars/handlebars.js',
 					'bower_components/ember/ember.js',
+
+					'bower_components/jqueryui/ui/jquery.ui.core.js',
+					'bower_components/jqueryui/ui/jquery.ui.widget.js',
+					'bower_components/jqueryui/ui/jquery.ui.mouse.js',
+					'bower_components/jqueryui/ui/jquery.ui.position.js',
+					'bower_components/jqueryui/ui/jquery.ui.button.js',
+					'bower_components/jqueryui/ui/jquery.ui.menu.js',
+					'bower_components/jqueryui/ui/jquery.ui.slider.js',
+					'bower_components/jqueryui/ui/jquery.ui.datepicker.js',
+					'bower_components/jqueryui/ui/i18n/jquery.ui.datepicker-en.js',
 
 					'bower_components/respond/respond.min.js'
 				]
