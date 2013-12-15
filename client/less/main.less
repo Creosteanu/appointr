@@ -8,6 +8,7 @@ body,html{
 	width: 100%;
 	height: 100%;
 	margin: 0;
+	font-family: Verdana, Arial, sans-serif;
 }
 .container{
 	table{
@@ -17,6 +18,22 @@ body,html{
 		margin-left: -500px;
 		td{
 			padding: 10px;
+			.ui-slider-handle{
+				text-align: center;
+				text-decoration: none;
+				line-height: 20px;
+
+				div{
+					font-size: 10px;
+				}
+			}
+		}
+		.summary{
+			.message{
+				display: none;
+				text-align: center;
+				color: red;
+			}
 		}
 	}
 }

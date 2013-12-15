@@ -1809,6 +1809,7 @@ html {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: Verdana, Arial, sans-serif;
 }
 
 .container table {
@@ -1820,4 +1821,20 @@ html {
 
 .container table td {
   padding: 10px;
+}
+
+.container table td .ui-slider-handle {
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.container table td .ui-slider-handle div {
+  font-size: 10px;
+}
+
+.container table .summary .message {
+  display: none;
+  color: red;
+  text-align: center;
 }
