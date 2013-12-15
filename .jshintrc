@@ -1,0 +1,33 @@
+{
+    "bitwise":true,
+    "camelcase":false,
+    "curly":true,
+    "eqeqeq":true,
+    "forin":true,
+    "immed":true,
+    "latedef": true,
+    "newcap":true,
+    "noarg":true,
+    "noempty": true,
+    "nonew":true,
+    "undef":true,
+    "unused":true,
+    "strict":true,
+    "globalstrict":true,
+    "quotmark": "single",
+    "force": true,
+    "node": false,
+    "browser": true,
+    "devel": true,
+    "proto": true,
+    "globals": {
+        "Ember": true,
+		"Em": true,
+        "jQuery": true,
+        "App": true,
+        "$": true,
+        "require": true,
+        "_":true,
+	   	"Handlebars":true
+	}
+}
