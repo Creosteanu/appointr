@@ -1,4 +1,17 @@
 'use strict';
+
+var createValues = function(slider,min,max){
+	var handles = slider.find('.ui-slider-handle');
+	handles.first().append($('<div>').text(min));
+	handles.last().append($('<div>').text(max));
+};
+
+var setValues = function(slider,min,max){
+	var handles = slider.find('.ui-slider-handle');
+	handles.first().find('div').text(min);
+	handles.last().find('div').text(max);
+};
+
 var checkPossibility = function(scope){
 	var dates = scope.$('table tr').first().find('td').length;
 	for(var i = 0; i < dates; i++){
@@ -9,7 +22,6 @@ var checkPossibility = function(scope){
 		var summarySelectorSlider = 'table tr.summary td:nth-child(' + child + ') .slider';
 
 		scope.$(selector).each(function(i,item){
-			console.log($(item));
 			values.push($(item).slider('values'));
 		});
 		var summaryValues = [];
@@ -34,14 +46,12 @@ var checkPossibility = function(scope){
 			summaryMessage.hide();
 			summarySlider.show();
 			summarySlider.slider('option','values',[summaryValues[0],summaryValues[1]]);
-			var handles = summarySlider.find('.ui-slider-handle');
-			handles.first().find('div').text(summaryValues[0]);
-			handles.last().find('div').text(summaryValues[1]);
+			setValues(summarySlider,summaryValues[0],summaryValues[1]);
 		}
-
 	}
-
 };
+
+
 
 window.App.MakeAppointmentStep2View = Ember.View.extend({
 	didInsertElement: function() {
@@ -54,9 +64,7 @@ window.App.MakeAppointmentStep2View = Ember.View.extend({
 			values: [ 0, 24 ],
 			disabled: true,
 			create: function() {
-				var handles = $(this).find('.ui-slider-handle');
-				handles.first().append($('<div>').text(0));
-				handles.last().append($('<div>').text(24));
+				createValues($(this),0,24);
 			}
 		});
 		this.$('tr:not(.summary) .slider').each(function initSlider(){
@@ -69,10 +77,7 @@ window.App.MakeAppointmentStep2View = Ember.View.extend({
 				max: 24,
 				values: [ minValue, maxValue ],
 				create: function() {
-					var handles = slider.find('.ui-slider-handle');
-					handles.first().append($('<div>').text(minValue));
-					handles.last().append($('<div>').text(maxValue));
-
+					createValues(slider,minValue,maxValue);
 				},
 				slide: function(event, ui ){
 					var startValue = ui.values[0];
@@ -84,9 +89,7 @@ window.App.MakeAppointmentStep2View = Ember.View.extend({
 					}else if (endValue > maxValue){
 						return false;
 					}else{
-						var handles = slider.find('.ui-slider-handle');
-						handles.first().find('div').text(startValue);
-						handles.last().find('div').text(endValue);
+						setValues(slider,startValue,endValue);
 					}
 				},
 				change: function(){
